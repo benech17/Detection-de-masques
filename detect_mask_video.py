@@ -1,4 +1,3 @@
-# USAGE
 # python detect_mask_video.py
 
 # import the necessary packages
@@ -32,15 +31,13 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 
 	# loop over the detections
 	for i in range(0, detections.shape[2]):
-		# extract the confidence (i.e., probability) associated with
-		# the detection
+		# extract the confidence (i.e., probability) associated with the detection
 		confidence = detections[0, 0, i, 2]
 
 		# filter out weak detections by ensuring the confidence is
 		# greater than the minimum confidence
 		if confidence > args["confidence"]:
-			# compute the (x, y)-coordinates of the bounding box for
-			# the object
+			# compute the (x, y)-coordinates of the bounding box for the object
 			box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 			(startX, startY, endX, endY) = box.astype("int")
 
@@ -57,8 +54,7 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 			face = img_to_array(face)
 			face = preprocess_input(face)
 
-			# add the face and bounding boxes to their respective
-			# lists
+			# add the face and bounding boxes to their respective lists
 			faces.append(face)
 			locs.append((startX, startY, endX, endY))
 

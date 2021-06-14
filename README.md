@@ -28,10 +28,21 @@ et Enfin , si on veut détecter des masques à travers un stream vidéo (votre c
 
 >$ python3 detect_mask_video.py
 
-## Resultat 
+## Resultat du Modèle
 
 Ce modèle permet de trouver des masques avec une éfficacité de 98%.
 ![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/plot.png )
 
 ![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/accuracy.png)
+
+## Test 
+Nous avons testé notre modèle sur l'un d'entre nous, lorsqu'il porte une masque : 
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withMask.png)
+
+Puis sans masque : 
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withoutMask.png)
+
+Et enfin, lorsqu'il le porte de manière non conventionnelle : 
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withOrWithoutMask.png)
+
 

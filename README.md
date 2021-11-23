@@ -37,16 +37,16 @@ Ce modèle permet de trouver des masques avec une efficacité de 98%.
 
 ## Test 
 Nous avons testé notre modèle sur l'un d'entre nous, lorsqu'il porte une masque : 
-![Ici](https://github.com/IAAP-project/Detection-de-masques/result/withMask.png)
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withMask.png)
 
 Puis sans masque : 
-![Ici](https://github.com/IAAP-project/Detection-de-masques/result/withoutMask.png)
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withoutMask.png)
 
 Et enfin, lorsqu'il le porte de manière non conventionnelle : 
-![Ici](https://github.com/IAAP-project/Detection-de-masques/result/withOrWithoutMask.png)
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withOrWithoutMask.png)
 
 Nous avons également permis la possibilité de détecter plusieurs personnes en même temps , dans une même vidéo stream.
-![Ici](https://github.com/IAAP-project/Detection-de-masques/result/detection_multiple.png)
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/detection_mulitple.png)
 
 
 ## Fin du programme 

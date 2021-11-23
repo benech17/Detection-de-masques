@@ -1,20 +1,20 @@
-# python detect_mask_video.py
+# Usage : Détection du port du masque en vidéo stream
+# python3 detect_mask_video.py
 
-# import the necessary packages
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.models import load_model
-from imutils.video import VideoStream
+# packages
 import numpy as np
 import argparse
 import imutils
 import time
 import cv2
 import os
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.models import load_model
+from imutils.video import VideoStream
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
-	# grab the dimensions of the frame and then construct a blob
-	# from it
+	# grab the dimensions of the frame and then construct a blob from it
 	(h, w) = frame.shape[:2]
 	blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300),
 		(104.0, 177.0, 123.0))
@@ -23,19 +23,17 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 	faceNet.setInput(blob)
 	detections = faceNet.forward()
 
-	# initialize our list of faces, their corresponding locations,
-	# and the list of predictions from our face mask network
+	# initialize our list of faces, their corresponding locations,and the list of predictions from our face mask network
 	faces = []
 	locs = []
 	preds = []
 
-	# loop over the detections
+	# Boucle sur les detections
 	for i in range(0, detections.shape[2]):
-		# extract the confidence (i.e., probability) associated with the detection
+		# extraction de la probabilité associée à la  detection
 		confidence = detections[0, 0, i, 2]
 
-		# filter out weak detections by ensuring the confidence is
-		# greater than the minimum confidence
+		# filtre des probabilités faibles en dessous d'un certain seuil minimal
 		if confidence > args["confidence"]:
 			# compute the (x, y)-coordinates of the bounding box for the object
 			box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
@@ -66,11 +64,10 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 		faces = np.array(faces, dtype="float32")
 		preds = maskNet.predict(faces, batch_size=32)
 
-	# return a 2-tuple of the face locations and their corresponding
-	# locations
+	# return les prédictions de port du masque avec leur localisations correspondantes
 	return (locs, preds)
 
-# construct the argument parser and parse the arguments
+# construction du parser d'argument
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--face", type=str,
 	default="face_detector",
@@ -83,49 +80,41 @@ ap.add_argument("-c", "--confidence", type=float, default=0.5,
 args = vars(ap.parse_args())
 
 # load our serialized face detector model from disk
-print("[INFO] loading face detector model...")
+print("[INFO] Chargement du modèle de détection de port du masque...")
 prototxtPath = os.path.sep.join([args["face"], "deploy.prototxt"])
 weightsPath = os.path.sep.join([args["face"],
 	"res10_300x300_ssd_iter_140000.caffemodel"])
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
-
-# load the face mask detector model from disk
-print("[INFO] loading face mask detector model...")
 maskNet = load_model(args["model"])
 
-# initialize the video stream and allow the camera sensor to warm up
-print("[INFO] starting video stream...")
+# initialise la video stream 
+print("[INFO] Début du Stream Vidéo...")
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
 # loop over the frames from the video stream
 while True:
-	# grab the frame from the threaded video stream and resize it
-	# to have a maximum width of 400 pixels
+	# grab the frame from the threaded video stream and et la redimensionne pour avoir une largeur max de 1200 pixels
 	frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+	frame = imutils.resize(frame, width=1200)
 
-	# detect faces in the frame and determine if they are wearing a
-	# face mask or not
+	# detecte les visages dans la fenêtre et determine s'ils portent un masque ou non
 	(locs, preds) = detect_and_predict_mask(frame, faceNet, maskNet)
 
-	# loop over the detected face locations and their corresponding
-	# locations
+	# boucle sur les visages détectés et leurs emplacements 
 	for (box, pred) in zip(locs, preds):
 		# unpack the bounding box and predictions
 		(startX, startY, endX, endY) = box
 		(mask, withoutMask) = pred
 
-		# determine the class label and color we'll use to draw
-		# the bounding box and text
-		label = "Mask" if mask > withoutMask else "No Mask"
-		color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
+		# determine la classe du  label et sa couleur utilisée pour tracer le rectangle et écrire la probabilité
+		label = "Masque" if mask > withoutMask else "pas de  Masque"
+		color = (0, 255, 0) if label == "Masque" else (0, 0, 255)
 			
-		# include the probability in the label
+		# Ajoute la probabilité au label
 		label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
 
-		# display the label and bounding box rectangle on the output
-		# frame
+		# Affichage du label et de la bounding box rectangle sur la fenêtre
 		cv2.putText(frame, label, (startX, startY - 10),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
 		cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
@@ -134,10 +123,10 @@ while True:
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
 
-	# if the `q` key was pressed, break from the loop
+	# 'appuyer sur la touche 'q' du clavier pour arrêter le stream et l'execution du programme
 	if key == ord("q"):
 		break
 
-# do a bit of cleanup
+# cleanup
 cv2.destroyAllWindows()
 vs.stop()

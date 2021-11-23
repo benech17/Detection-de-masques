@@ -1,5 +1,5 @@
 # Detection-de-masques
-Programme permettant la détection (ou non) de masques à travers un stream vidéo ou par une image en utilisant OpenCV , Tensorflow et Keras.
+Programme permettant la détection (ou non) de masques à travers un stream vidéo ou par une image en utilisant les librairies OpenCV, Tensorflow et Keras.
 
 
 ## Dataset Utilisé 
@@ -30,7 +30,7 @@ et Enfin , si on veut détecter des masques à travers un stream vidéo (votre c
 
 ## Resultat du Modèle
 
-Ce modèle permet de trouver des masques avec une éfficacité de 98%.
+Ce modèle permet de trouver des masques avec une efficacité de 98%.
 ![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/plot.png )
 
 ![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/accuracy.png)
@@ -45,4 +45,9 @@ Puis sans masque :
 Et enfin, lorsqu'il le porte de manière non conventionnelle : 
 ![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withOrWithoutMask.png)
 
+Nous avons également permis la possibilité de détecter plusieurs personnes en même temps , dans une même vidéo stream.
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/detection_multiple.png)
 
+
+## Fin du programme 
+Pour quitter le programme, il suffit d'appuyer sur la touche 'd' de votre clavier pour fermer la fenêtre et arrêter l'éxecution du programme.

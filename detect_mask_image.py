@@ -1,14 +1,15 @@
-# USAGE
-# python detect_mask_image.py --image images/pic1.jpeg
+# USAGE : detection de masque à partir d'une photo
+# python3 detect_mask_image.py --image images/pic1.jpeg
 
-# import the necessary packages
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.models import load_model
+#packages
 import numpy as np
 import argparse
 import cv2
 import os
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.models import load_model
+
 def mask_image():
 	# construct the argument parser and parse the arguments
 	ap = argparse.ArgumentParser()
@@ -32,7 +33,7 @@ def mask_image():
 	net = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 	# load the face mask detector model from disk
-	print("[INFO] loading face mask detector model...")
+	print("[INFO] Chargement du modèle de détection de masques...")
 	model = load_model(args["model"])
 
 	# load the input image from disk, clone it, and grab the image spatial
@@ -46,14 +47,13 @@ def mask_image():
 		(104.0, 177.0, 123.0))
 
 	# pass the blob through the network and obtain the face detections
-	print("[INFO] computing face detections...")
+	print("[INFO] compilation de la détection...")
 	net.setInput(blob)
 	detections = net.forward()
 
 	# loop over the detections
 	for i in range(0, detections.shape[2]):
-		# extract the confidence (i.e., probability) associated with
-		# the detection
+		# extract the  probability associated with the detection
 		confidence = detections[0, 0, i, 2]
 
 		# filter out weak detections by ensuring the confidence is

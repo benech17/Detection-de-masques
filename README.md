@@ -3,9 +3,9 @@ Programme permettant la détection (ou non) de masques à travers un stream vid�
 
 
 ## Dataset Utilisé 
-L'ensemble du DataSet utilisé est dans le dossier dataset/  et est composé de 2 sous-dossiers équilibrés : 
-    - with_mask  qui contient 2165 images 
-    - without_mask qui contient 1930 images.
+L'ensemble du DataSet utilisé est dans le dossier dataset/  et est composé de 2 sous-dossiers équilibrés totalisant 4095 images : 
+- with_mask  qui contient 2165 images 
+- without_mask qui contient 1930 images.
 
 Ces images ont été récupérés sur un DataSet public disponible sur Kaggle ou sur un dépot public git : ([Ici](https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset)) 
 
@@ -13,10 +13,11 @@ Ces images ont été récupérés sur un DataSet public disponible sur Kaggle ou
 L'ensemble des dépendances se trouvent dans le fichier : 
 ``` requirements.txt ``` . qui peuvent s'installer , à la racine du projet après avoir cloné le projet, avec 
 
+>$ git clone https://github.com/IAAP-project/Detection-de-masques.git 
 >$ pip3 install -r requirements.txt
 
 ## Installation
- On peut réentrainer le modele (si ajout de nouvelles images dans le DataSet) avec 
+ On peut réentrainer le modele (si ajout de nouvelles images dans le DataSet par exemples) avec 
  
  >$ python3 train_mask_detector.py --dataset dataset
  

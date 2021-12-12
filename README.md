@@ -14,6 +14,7 @@ L'ensemble des dépendances se trouvent dans le fichier :
 ``` requirements.txt ``` . qui peuvent s'installer , à la racine du projet après avoir cloné le projet, avec 
 
 >$ git clone https://github.com/IAAP-project/Detection-de-masques.git 
+
 >$ pip3 install -r requirements.txt
 
 ## Installation

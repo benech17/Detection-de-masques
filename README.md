@@ -33,6 +33,7 @@ et Enfin , si on veut détecter des masques à travers un stream vidéo (votre c
 ## Resultat du Modèle
 
 Ce modèle permet de trouver des masques avec une efficacité de 98%.
+
 ![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/plot.png )
 
 ![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/accuracy.png)

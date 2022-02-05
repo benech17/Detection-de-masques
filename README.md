@@ -34,9 +34,9 @@ et Enfin , si on veut détecter des masques à travers un stream vidéo (votre c
 
 Ce modèle permet de trouver des masques avec une efficacité de 98%.
 
-![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/plot.png )
+![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/accuracy.png )
 
-![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/accuracy.png)
+![resultat sur different scoring](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/train.png)
 
 ## Test 
 Nous avons testé notre modèle sur l'un d'entre nous, lorsqu'il porte une masque : 
@@ -51,6 +51,16 @@ Et enfin, lorsqu'il le porte de manière non conventionnelle :
 Nous avons également permis la possibilité de détecter plusieurs personnes en même temps , dans une même vidéo stream.
 ![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/detection_mulitple.png)
 
+La détection est fonctionnelle jusqu'à environ 4 mètres. 
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/distance.png)
 
 ## Fin du programme 
+
 Pour quitter le programme, il suffit d'appuyer sur la touche 'q' de votre clavier pour fermer la fenêtre et arrêter l'éxecution du programme.
+
+
+# Auteurs : 
+
+Menbres du projet G1-G2 IAAP, fait à Centrale Lille de Novembre 20 - Fevrier 22.
+Contact : projetiaap@gmail.com
+

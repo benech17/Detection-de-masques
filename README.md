@@ -53,4 +53,4 @@ Nous avons également permis la possibilité de détecter plusieurs personnes en
 
 
 ## Fin du programme 
-Pour quitter le programme, il suffit d'appuyer sur la touche 'd' de votre clavier pour fermer la fenêtre et arrêter l'éxecution du programme.
+Pour quitter le programme, il suffit d'appuyer sur la touche 'q' de votre clavier pour fermer la fenêtre et arrêter l'éxecution du programme.

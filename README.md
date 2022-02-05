@@ -43,10 +43,10 @@ Nous avons testé notre modèle sur l'un d'entre nous, lorsqu'il porte une masqu
 ![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withMask.png)
 
 Puis sans masque : 
-![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withoutMask.png)
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/without.png)
 
 Et enfin, lorsqu'il le porte de manière non conventionnelle : 
-![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withOrWithoutMask.png)
+![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/withOrWithout.png)
 
 Nous avons également permis la possibilité de détecter plusieurs personnes en même temps , dans une même vidéo stream.
 ![Ici](https://github.com/IAAP-project/Detection-de-masques/blob/main/result/detection_mulitple.png)

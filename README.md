@@ -13,7 +13,7 @@ Ces images ont été récupérés sur un DataSet public disponible sur Kaggle ou
 L'ensemble des dépendances se trouvent dans le fichier : 
 ``` requirements.txt ``` . qui peuvent s'installer , à la racine du projet après avoir cloné le projet, avec 
 
->$ git clone https://github.com/IAAP-project/Detection-de-masques.git 
+>$ git clone https://github.com/benech17/Detection-de-masques.git 
 
 >$ pip3 install -r requirements.txt
 
@@ -61,11 +61,3 @@ La détection est fonctionnelle jusqu'à environ 4 mètres.
 ## Fin du programme 
 
 Pour quitter le programme, il suffit d'appuyer sur la touche 'q' de votre clavier pour fermer la fenêtre et arrêter l'éxecution du programme.
-
-
-# Auteurs : 
-
-Menbres du projet G1-G2 IAAP, fait à Centrale Lille de Novembre 20 - Fevrier 22.
-
-Contact : projetiaap@gmail.com
-
